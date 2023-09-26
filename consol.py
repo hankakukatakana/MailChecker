@@ -1,14 +1,17 @@
 import subprocess
 
 hosts = ["google.com"]
+def ping():
+    for host in hosts:
+        res = subprocess.run(["ping",host],stdout=subprocess.PIPE)
 
-for host in hosts:
-    res = subprocess.run(["ping",host],stdout=subprocess.PIPE)
+        print(res.stdout.decode("cp932"))
 
-    print(res.stdout.decode("cp932"))
-    
-    if res.returncode == 0 :
-        print("成功\n\n")
-    else:
-        print("失敗\n\n")
-    print("-----------------------------")
+        if res.returncode == 0 :
+            print("成功\n\n")
+        else:
+            print("失敗\n\n")
+        print("-----------------------------")
+def ipconfig():
+    subprocess.run([])
+ping()
