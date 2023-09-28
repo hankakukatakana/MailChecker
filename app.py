@@ -25,11 +25,11 @@ pw.place(x=90, y=220)
 setaddress = Button(width=10)
 setaddress.place(x=400, y=70)
 
-    def reset():
-        address.delete(0)
-        popimap.delete(0)
-        smtp.delete(0)
-        #text clear
+def reset():
+    address.delete(0)
+    popimap.delete(0)
+    smtp.delete(0)
+    #text clear
 def send():
     outlook = win32com.client.Dispatch("Outlook.Application") # outlookのアプリケーションオブジェクトを作成
     outlook.CreateItem(0)
