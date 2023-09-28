@@ -15,7 +15,10 @@ popimap = Entry(width=40)
 smtp = Entry(width=40)
 pw = Entry(width=20)
 
-lbl = Label(text='数値')
+addresslbl = Label(text='Address')
+popimaplbl = Label(text='PopServar')
+smtplbl = Label(text='SmtpServer')
+pwlbl = Label(text='PW')
 lbl.place(x=30, y=70)
 address.place(x=90, y=70)
 popimap.place(x=90, y=120)
@@ -35,9 +38,9 @@ def send():
     outlook.CreateItem(0)
     #Mail send
 def print():
-    f = open('test.txt', 'w')
-    f.write('test')
-    f.close()
+    file = open('test.txt', 'w')
+    file.write('test')
+    file.close()
     #txt print
 
 root.mainloop()
