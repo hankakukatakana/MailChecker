@@ -13,5 +13,7 @@ def ping():
             print("失敗\n\n")
         print("-----------------------------")
 def ipconfig():
-    subprocess.run([])
+    subprocess.run(["ipconfig"])
+
+
 ping()
