@@ -91,7 +91,6 @@ def check_soa_record(domain):
     except dns.resolver.NoAnswer:
         return "SOAレコードが見つかりません"
 
-
 domain_to_check = "kaikairo.com"
 ip_address_to_check = "8.8.8.8"
 ip_address = get_ip_using_socket(domain_to_check)
