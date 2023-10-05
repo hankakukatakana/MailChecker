@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>DNS Checker UI</title>
+</head>
+<body>
+    <h1>DNS Checker UI</h1>
+    <form action="/" method="post">
+        <label for="domain">ドメイン名：</label>
+        <input type="text" id="domain" name="domain" required>
+        <button type="submit">チェック</button>
+    </form>
+
+    <!-- チェック結果を表示するエリア -->
+    <div id="result">
+        {% if ip_address %}
+            <p>{{ domain }} のIPアドレス: {{ ip_address }}</p>
+        {% endif %}
+        {% if a_records %}
+            <p>Aレコード: {{ a_records }}</p>
+        {% endif %}
+        <!-- 他のチェック結果も同様に表示する -->
+    </div>
+</body>
+</html>
