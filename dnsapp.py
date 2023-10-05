@@ -59,10 +59,10 @@ def check_ns_record(domain):
     except dns.resolver.NoAnswer:
         return "NSレコードが見つかりません"
 
-def check_ptr_record(ip_address):
+def check_ptr_record(ip_address_to_check):
     try:
         # PTRレコードを取得
-        ptr_record = dns.resolver.resolve(dns.reversename.from_address(ip_address), 'PTR')
+        ptr_record = dns.resolver.resolve(dns.reversename.from_address(ip_address_to_check), 'PTR')
         return [str(record) for record in ptr_record]
     except dns.resolver.NXDOMAIN:
         return "PTRレコードが見つかりません"
@@ -91,11 +91,11 @@ def check_soa_record(domain):
     except dns.resolver.NoAnswer:
         return "SOAレコードが見つかりません"
 
-domain_to_check = "kaikairo.com"
-ip_address_to_check = "8.8.8.8"
-ip_address = get_ip_using_socket(domain_to_check)
+domain_to_check = "mamama.com"
 
-print(f"{domain_to_check} のIPアドレス: {ip_address}")
+ip_address_to_check = get_ip_using_socket(domain_to_check)
+
+print(f"{domain_to_check} のIPアドレス: {ip_address_to_check}")
 print(f"Aレコード: {check_a_record(domain_to_check)}")
 print(f"AAAAレコード: {check_aaaa_record(domain_to_check)}")
 print(f"CNAMEレコード: {check_cname_record(domain_to_check)}")
