@@ -71,6 +71,7 @@ def check_ptr_record(ip_address_to_check):
 
 def check_txt_record(domain):
     try:
+        # アダプターのDNSによって出てこないことがある
         # TXTレコードを取得 (タイムアウト 10秒)
         txt_records = dns.resolver.resolve(domain, 'TXT', lifetime=10.0)
         return [str(record) for record in txt_records]
@@ -91,7 +92,7 @@ def check_soa_record(domain):
     except dns.resolver.NoAnswer:
         return "SOAレコードが見つかりません"
 
-domain_to_check = "mamama.com"
+domain_to_check = "crest.ocn.ne.jp"
 
 ip_address_to_check = get_ip_using_socket(domain_to_check)
 
