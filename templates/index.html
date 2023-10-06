@@ -1,75 +1,70 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="jp">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/main.css">
     <title>DNS Checker</title>
 </head>
 <body>
-    <h1>DNS Checker</h1>
-    <form action="/check" method="post">
-        <label for="domain">ドメイン名：</label>
-        <input type="text" id="domain" name="domain" required>
-        <button type="submit">チェック</button>
-    </form>
-
-    <div id="result">
-        {% if result %}
-            <p>Domain: {{ result['domain'] }}</p>
-            <p>IP Address: {{ result['ip_address'] }}</p>
-
-            <p>A Records:</p>
-            <ul>
-                {% for a_record in result['a_records'] %}
-                    <li>{{ a_record }}</li>
-                {% endfor %}
-            </ul>
-
-            <p>AAAA Records:</p>
-            <ul>
-                {% for aaaa_record in result['aaaa_records'] %}
-                    <li>{{ aaaa_record }}</li>
-                {% endfor %}
-            </ul>
-
-            <p>CNAME Records:</p>
-            <p>{{ result['cname_records'] }}</p>
-
-            <p>MX Records:</p>
-            <ul>
-                {% for mx_record in result['mx_records'] %}
-                    <li>{{ mx_record }}</li>
-                {% endfor %}
-            </ul>
-
-            <p>NS Records:</p>
-            <ul>
-                {% for ns_record in result['ns_records'] %}
-                    <li>{{ ns_record }}</li>
-                {% endfor %}
-            </ul>
-
-            <p>PTR Records:</p>
-            <ul>
-                {% for ptr_record in result['ptr_records'] %}
-                    <li>{{ ptr_record }}</li>
-                {% endfor %}
-            </ul>
-
-            <p>TXT Records:</p>
-            <ul>
-                {% for txt_record in result['txt_records'] %}
-                    <li>{{ txt_record }}</li>
-                {% endfor %}
-            </ul>
-
-            <p>SOA Records:</p>
-            <ul>
-                {% for soa_record in result['soa_records'] %}
-                    <li>{{ soa_record }}</li>
-                {% endfor %}
-            </ul>
-
-        {% endif %}
+    <div class="container">
+        <h1>DNS Checker</h1>
+        <form action="/check" method="post">
+            <label for="domain">ドメイン名：</label>
+            <input type="text" id="domain" name="domain" required>
+            <button type="submit">チェック</button>
+        </form>
+    
+        <div id="result">
+            {% if result %}
+                <p>Domain: {{ result['domain'] }}</p>
+                <p>IP Address: {{ result['ip_address'] }}</p>
+                <p>A Records:</p>
+                <ul>
+                    {% for a_record in result['a_records'] %}
+                        <li>{{ a_record }}</li>
+                    {% endfor %}
+                </ul>
+                <p>AAAA Records:</p>
+                <ul>
+                    {% for aaaa_record in result['aaaa_records'] %}
+                        <li>{{ aaaa_record }}</li>
+                    {% endfor %}
+                </ul>
+                <p>CNAME Records:</p>
+                <p>{{ result['cname_records'] }}</p>
+                <p>MX Records:</p>
+                <ul>
+                    {% for mx_record in result['mx_records'] %}
+                        <li>{{ mx_record }}</li>
+                    {% endfor %}
+                </ul>    
+                <p>NS Records:</p>
+                <ul>
+                    {% for ns_record in result['ns_records'] %}
+                        <li>{{ ns_record }}</li>
+                    {% endfor %}
+                </ul>  
+                <p>PTR Records:</p>
+                <ul>
+                    {% for ptr_record in result['ptr_records'] %}
+                        <li>{{ ptr_record }}</li>
+                    {% endfor %}
+                </ul>
+                <p>TXT Records:</p>
+                <ul>
+                    {% for txt_record in result['txt_records'] %}
+                        <li>{{ txt_record }}</li>
+                    {% endfor %}
+                </ul> 
+                <p>SOA Records:</p>
+                <ul>
+                    {% for soa_record in result['soa_records'] %}
+                        <li>{{ soa_record }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>    
     </div>
 </body>
 </html>
