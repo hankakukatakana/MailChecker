@@ -17,52 +17,70 @@
     
         <div id="result">
             {% if result %}
-                <p>Domain: {{ result['domain'] }}</p>
-                <p>IP Address: {{ result['ip_address'] }}</p>
-                <p>A Records:</p>
-                <ul>
-                    {% for a_record in result['a_records'] %}
-                        <li>{{ a_record }}</li>
-                    {% endfor %}
-                </ul>
-                <p>AAAA Records:</p>
-                <ul>
-                    {% for aaaa_record in result['aaaa_records'] %}
-                        <li>{{ aaaa_record }}</li>
-                    {% endfor %}
-                </ul>
-                <p>CNAME Records:</p>
-                <p>{{ result['cname_records'] }}</p>
-                <p>MX Records:</p>
-                <ul>
-                    {% for mx_record in result['mx_records'] %}
-                        <li>{{ mx_record }}</li>
-                    {% endfor %}
-                </ul>    
-                <p>NS Records:</p>
-                <ul>
-                    {% for ns_record in result['ns_records'] %}
-                        <li>{{ ns_record }}</li>
-                    {% endfor %}
-                </ul>  
-                <p>PTR Records:</p>
-                <ul>
-                    {% for ptr_record in result['ptr_records'] %}
-                        <li>{{ ptr_record }}</li>
-                    {% endfor %}
-                </ul>
-                <p>TXT Records:</p>
-                <ul>
-                    {% for txt_record in result['txt_records'] %}
-                        <li>{{ txt_record }}</li>
-                    {% endfor %}
-                </ul> 
-                <p>SOA Records:</p>
-                <ul>
-                    {% for soa_record in result['soa_records'] %}
-                        <li>{{ soa_record }}</li>
-                    {% endfor %}
-                </ul>
+                <h2>Domain: {{ result['domain'] }}</h2>
+                <div class="status">
+                    <p>IP Address: {{ result['ip_address'] }}</p>
+                </div>
+                <h2>A Records:</h2>
+                <div class="status">
+                    <ul>
+                        {% for a_record in result['a_records'] %}
+                            <li>{{ a_record }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <h2>AAAA Records:</h2>
+                <div class="status">
+                    <ul>
+                        {% for aaaa_record in result['aaaa_records'] %}
+                            <li>{{ aaaa_record }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <h2>CNAME Records:</h2>
+                <div class="status">
+                    <p>{{ result['cname_records'] }}</p>
+                </div>
+                <h2>MX Records:</h2>
+                <div class="status">
+                    <ul>
+                        {% for mx_record in result['mx_records'] %}
+                            <li>{{ mx_record }}</li>
+                        {% endfor %}
+                    </ul>    
+                </div>
+                <h2>NS Records:</h2>
+                <div class="status">
+                    <ul>
+                        {% for ns_record in result['ns_records'] %}
+                            <li>{{ ns_record }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <h2>PTR Records:</h2>
+                <div class="status">
+                    <ul>
+                        {% for ptr_record in result['ptr_records'] %}
+                            <li>{{ ptr_record }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <h2>TXT Records:</h2>
+                <div class="status">
+                    <ul>
+                        {% for txt_record in result['txt_records'] %}
+                            <li>{{ txt_record }}</li>
+                        {% endfor %}
+                    </ul> 
+                </div>
+                <h2>SOA Records:</h2>
+                <div class="status">
+                    <ul>
+                        {% for soa_record in result['soa_records'] %}
+                            <li>{{ soa_record }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
             {% endif %}
         </div>    
     </div>
