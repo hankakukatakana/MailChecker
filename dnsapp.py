@@ -93,7 +93,7 @@ def check_soa_record(domain):
     except dns.resolver.NoAnswer:
         return "SOAレコードが見つかりません"
 
-domain_to_check = "crest.ocn.ne.jp"
+domain_to_check = "tadano.com"
 
 ip_address_to_check = get_ip_using_socket(domain_to_check)
 
