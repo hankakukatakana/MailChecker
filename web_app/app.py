@@ -93,7 +93,18 @@ class DNSChecker:
             return "ドメインが存在しません"
         except dns.resolver.NoAnswer:
             return "SOAレコードが見つかりません"
-
+class PTRChecker:
+    def check_ptr_record(self, ip_address_to_check):
+        try:
+            # PTRレコードを取得
+            ptr_record = dns.resolver.resolve(dns.reversename.from_address(ip_address_to_check), 'PTR')
+            return [str(record) for record in ptr_record]
+        except dns.resolver.NXDOMAIN:
+            return "PTRレコードが見つかりません"
+        except dns.resolver.NoAnswer:
+            return "PTRレコードが見つかりません"
+        
+        
 app = Flask(__name__)
 dns_checker = DNSChecker()
 
